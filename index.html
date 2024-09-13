@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantor Set Visualization</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    canvas {
+      border: 1px solid black;
+      width: 45%;
+      height: 400px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cantor Set Visualization</h1>
+  <button id="drawStandardBtn">Draw Standard Cantor Set</button>
+  <button id="drawStylizedBtn">Draw Stylized Cantor Set</button>
+
+  <div id="container">
+    <canvas id="cantorCanvasStandard"></canvas>
+    <canvas id="cantorCanvasStylized"></canvas>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
