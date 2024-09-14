@@ -1,5 +1,7 @@
 import { Node } from './node.js';
 
+const h = 90;
+
 export class CantorSet {
   constructor(ctx, x, y, length, depth, lineThickness = 2) {
     this.ctx = ctx;
@@ -22,8 +24,8 @@ export class CantorSet {
     // Draw a circle at the midpoint to represent the node
     this.ctx.beginPath();
     this.ctx.arc(midX, midY, 5, 0, 2 * Math.PI); // Node size
-    this.ctx.fillStyle = 'red'; // Node color
-    this.ctx.fill();
+    this.ctx.strokeStyle = 'silver';
+    this.ctx.stroke();
 
     // Create a new node for this segment
     const node = new Node(`${depth}`); // You can assign any value
@@ -43,7 +45,7 @@ export class CantorSet {
       this.ctx.beginPath();
       this.ctx.moveTo(parentNode.x, parentNode.y);
       this.ctx.lineTo(node.x, node.y);
-      this.ctx.strokeStyle = 'blue'; // Line color between nodes
+      this.ctx.strokeStyle = 'silver'; // Line color between nodes
       this.ctx.stroke();
     } else {
       // If no parent, this node is the root
@@ -52,7 +54,7 @@ export class CantorSet {
 
     // Prepare for recursive calls
     const newLength = length / 3;
-    const newY = y + 30; // Move down for the next level
+    const newY = y + h; // Move down for the next level
 
     // Recursively draw the left and right segments
     node.left = this.drawStandardCantor(x, newY, newLength, depth - 1, node);
@@ -97,7 +99,7 @@ export class CantorSet {
       this.ctx.beginPath();
       this.ctx.moveTo(parentNode.x, parentNode.y);
       this.ctx.lineTo(node.x, node.y);
-      this.ctx.strokeStyle = 'blue'; // Line color between nodes
+      this.ctx.strokeStyle = 'silver'; // Line color between nodes
       this.ctx.stroke();
     } else {
       // If no parent, this node is the root
@@ -150,11 +152,12 @@ export class CantorSetStylized {
     const midY = y;
 
     // Draw a circle at the midpoint to represent the node
+    /*
     this.ctx.beginPath();
     this.ctx.arc(midX, midY, 5, 0, 2 * Math.PI); // Node size
-    this.ctx.fillStyle = 'red'; // Node color
-    this.ctx.fill();
-
+    this.ctx.strokeStyle = 'silver'; // Node color
+    this.ctx.stroke();
+    */
     // Create a new node for this segment
     const node = new Node(`${depth}`);
     node.x = midX;
@@ -165,7 +168,7 @@ export class CantorSetStylized {
       this.ctx.beginPath();
       this.ctx.moveTo(parentNode.x, parentNode.y);
       this.ctx.lineTo(node.x, node.y);
-      this.ctx.strokeStyle = 'blue'; // Line color between nodes
+      this.ctx.strokeStyle = 'silver'; // Line color between nodes
       this.ctx.stroke();
     } else {
       // If no parent, this node is the root
@@ -175,7 +178,7 @@ export class CantorSetStylized {
     // Prepare for recursive calls with more volatile shifts
     const newLength = length / 3;
     const randomShift = (Math.sin(time / 50) + Math.random()) * 10; // Make shifts more volatile
-    const newY = y + 30 + randomShift; // Move down for the next level
+    const newY = y + h + randomShift; // Move down for the next level
 
     // Recursively draw the left and right segments with evolving time
     node.left = this.drawStylizedCantor(x, newY, newLength, depth - 1, node, time + 1);
