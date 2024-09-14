@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantor Set Visualization</title>
+  <style>
+    body,
+    div {
+      margin: 1 auto;
+      padding: 1 auto;
+    }
+
+    canvas {
+      border: 0px solid black;
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+      max-height: 800px;
+    }
+
+    .container-cvs {
+      width: 90vw;
+      height: 80vh;
+      margin: 1 auto;
+      padding: 1 auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script type="module" crossorigin src="/CantorSet/assets/main-DZK0KKyC.js"></script>
+  <link rel="stylesheet" crossorigin href="/CantorSet/assets/main-CZdK6nMS.css">
+</head>
+
+<body>
+  <main class="container">
+    <div>&nbsp;</div>
+    <header class="h4">Cantor Set Visualization</header>
+    <div>&nbsp;</div>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button"
+          role="tab" aria-controls="about" aria-selected="true">About</button>
+        <button class="nav-link" id="nodes-tab" data-bs-toggle="tab" data-bs-target="#nodes" type="button" role="tab"
+          aria-controls="nodes" aria-selected="false">Traditional</button>
+        <button class="nav-link" id="stylized-tab" data-bs-toggle="tab" data-bs-target="#stylized" type="button"
+          role="tab" aria-controls="stylized" aria-selected="false">Stylized (Animated)</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+        <article class="container my-5">
+
+          <h4 class="display-6 text-center mb-5">The Cantor Set: An Exploration of Infinity and Fractal Geometry</h4>
+
+          <h5 class="h5 mb-4">Introduction to the Cantor Set</h5>
+
+          <p class="mb-3">
+            The Cantor set is one of the most intriguing constructs in mathematics, representing both simplicity and
+            complexity. Discovered by German mathematician Georg Cantor in 1883, it serves as a foundational example in
+            the study of fractals, set theory, and topology. The Cantor set is constructed by repeatedly removing the
+            middle third of a line segment, leading to a set that is uncountably infinite yet has zero measure (length).
+          </p>
+
+          <p class="mb-3">
+            In the realm of sacred geometry, the Cantor set symbolizes the concept of infinity within a finite space,
+            reflecting patterns that recur at every scale. Its recursive nature and self-similarity make it a profound
+            example of how simple iterative processes can lead to infinitely complex structures.
+          </p>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Mathematical Foundation of the Cantor Set</h5>
+
+          <h6 class="h6 mb-3">Construction Process</h6>
+
+          <p class="mb-3">
+            The classic (middle-third) Cantor set is created through an iterative process:
+          </p>
+
+          <ol class="mb-4">
+            <li><strong>Start with a Line Segment</strong>: Begin with the closed interval [0, 1].</li>
+            <li><strong>Remove the Middle Third</strong>: Delete the open interval (1/3, 2/3), leaving two line
+              segments:
+              [0, 1/3] and [2/3, 1].</li>
+            <li><strong>Iterate Indefinitely</strong>: Repeat the process for each remaining segment, removing the
+              middle
+              third each time.</li>
+          </ol>
+
+          <p class="mb-3">
+            Mathematically, the Cantor set \( C \) can be defined as:
+          </p>
+
+          <p class="text-center mb-4">
+            \[ C = \bigcap_{n=1}^{\infty} C_n \]
+          </p>
+
+          <p class="mb-3">
+            where \( C_0 = [0, 1] \) and \( C_{n} \) is obtained by removing the middle third from each interval in \(
+            C_{n-1} \).
+          </p>
+
+          <h6 class="h6 mb-3">Properties</h6>
+
+          <ul class="mb-4">
+            <li><strong>Uncountably Infinite</strong>: Despite being composed of an infinite number of points, the
+              Cantor
+              set is uncountable, meaning it has the same cardinality as the real numbers.</li>
+            <li><strong>Zero Measure</strong>: The total length of the Cantor set is zero. This is because at each step,
+              a
+              portion of the length is removed, and as \( n \) approaches infinity, the total length approaches zero.
+            </li>
+            <li><strong>Nowhere Dense</strong>: The Cantor set contains no intervals of non-zero length.</li>
+            <li><strong>Self-Similar</strong>: The Cantor set is a fractal, exhibiting self-similarity at every scale.
+            </li>
+          </ul>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Geometric Interpretation</h5>
+
+          <p class="mb-3">
+            Visually, the Cantor set appears as an infinite collection of points along the interval [0, 1]. Each
+            iteration
+            reveals more gaps, creating a dust-like pattern. The self-similarity is evident, as any magnified portion of
+            the Cantor set resembles the whole.
+          </p>
+
+          <h6 class="h6 mb-3">Fractal Dimension</h6>
+
+          <p class="mb-3">
+            The fractal (Hausdorff) dimension \( D \) of the Cantor set is:
+          </p>
+
+          <p class="text-center mb-4">
+            \[ D = \frac{\log(2)}{\log(3)} \approx 0.6309 \]
+          </p>
+
+          <p class="mb-3">
+            This non-integer dimension reflects the complexity of the Cantor set, existing between a one-dimensional
+            line
+            and a collection of discrete points.
+          </p>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">The Cantor Set in Nature</h5>
+
+          <p class="mb-3">
+            While the exact Cantor set doesn't occur naturally, its principles manifest in various natural phenomena:
+          </p>
+
+          <ul class="mb-4">
+            <li><strong>Coastlines</strong>: The irregularity and self-similarity of coastlines at different scales
+              resemble fractal patterns like the Cantor set.</li>
+            <li><strong>Lungs and Blood Vessels</strong>: The branching patterns in biological systems exhibit recursive
+              structures similar to fractals.</li>
+            <li><strong>Galactic Structures</strong>: The distribution of galaxies and dark matter may display
+              fractal-like distributions on a cosmic scale.</li>
+          </ul>
+
+          <p class="mb-3">
+            The Cantor set serves as a mathematical model to understand these complex, self-similar structures in
+            nature.
+          </p>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Cantor Set in Linear Algebra</h5>
+
+          <p class="mb-3">
+            Though the Cantor set is primarily a construct in topology and real analysis, connections to linear algebra
+            arise in the study of vector spaces and dimensionality.
+          </p>
+
+          <h6 class="h6 mb-3">Vector Spaces and Dimensions</h6>
+
+          <p class="mb-3">
+            The Cantor set challenges the conventional understanding of dimensions. In linear algebra, dimensions are
+            associated with the number of vectors in a basis of a vector space. The Cantor set, with its non-integer
+            fractal dimension, invites exploration into fractional dimensions and their implications in vector spaces.
+          </p>
+
+          <h6 class="h6 mb-3">Eigenvalues and Operators</h6>
+
+          <p class="mb-3">
+            Linear operators acting on functions defined on the Cantor set can exhibit unique spectral properties.
+            Studying these operators contributes to the field of functional analysis, which bridges linear algebra and
+            topology.
+          </p>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Cantor Set in Graph Theory</h5>
+
+          <p class="mb-3">
+            In graph theory, the Cantor set inspires the construction of infinite graphs with self-similar properties.
+          </p>
+
+          <h6 class="h6 mb-3">Cantor Graphs</h6>
+
+          <p class="mb-3">
+            By representing the intervals of the Cantor set as nodes and the removal processes as edges, one can
+            construct
+            a graph that mirrors the fractal structure of the Cantor set. This approach aids in visualizing and
+            analyzing
+            complex networks and hierarchical structures.
+          </p>
+
+          <h6 class="h6 mb-3">Applications</h6>
+
+          <ul class="mb-4">
+            <li><strong>Data Structures</strong>: Tree-like data structures in computer science often utilize principles
+              similar to those in the Cantor set's construction.</li>
+            <li><strong>Network Topology</strong>: Designing networks with efficient communication paths can benefit
+              from
+              the self-similar and recursive nature of the Cantor set.</li>
+          </ul>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Algorithmic Understanding and Progression</h5>
+
+          <p class="mb-3">
+            The Cantor set's construction lends itself to recursive algorithms, making it an excellent subject for
+            computational exploration.
+          </p>
+
+          <h6 class="h6 mb-3">Pseudocode for Cantor Set Generation</h6>
+
+          <pre class="bg-light p-3 mb-4"><code class="language-pseudo">function drawCantorSet(x, y, length, depth):
+            if depth == 0:
+                return
+            drawLine(x, y, length)
+            newY = y + offset
+            newLength = length / 3
+            drawCantorSet(x, newY, newLength, depth - 1)
+            drawCantorSet(x + 2 * newLength, newY, newLength, depth - 1)
+        </code></pre>
+
+          <p class="mb-3">
+            This recursive algorithm reflects the iterative process of the Cantor set's creation.
+          </p>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Code Implementations</h5>
+
+          <h6 class="h6 mb-3">1. <strong>Python Version</strong></h6>
+
+          <pre class="bg-light p-3 mb-4"><code class="language-python">import matplotlib.pyplot as plt
+        
+        def draw_cantor_set(x, y, length, depth):
+            if depth == 0:
+                return
+            plt.hlines(y, x, x + length, colors='black')
+            y -= 1  # Move down for the next level
+            new_length = length / 3
+            draw_cantor_set(x, y, new_length, depth - 1)
+            draw_cantor_set(x + 2 * new_length, y, new_length, depth - 1)
+        
+        # Example usage
+        plt.figure(figsize=(10, 2))
+        draw_cantor_set(0, 0, 27, 5)
+        plt.axis('off')
+        plt.show()
+        </code></pre>
+
+          <p class="mb-3">
+            This Python code uses <code>matplotlib</code> to visualize the Cantor set up to a specified depth.
+          </p>
+
+          <hr class="my-5">
+
+          <h6 class="h6 mb-3">2. <strong>JavaScript Version</strong></h6>
+
+          <pre class="bg-light p-3 mb-4"><code class="language-html">&lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;Cantor Set Visualization&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;canvas id="cantorCanvas" width="800" height="200"&gt;&lt;/canvas&gt;
+        &lt;script&gt;
+        function drawCantorSet(ctx, x, y, length, depth) {
+            if (depth === 0) return;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + length, y);
+            ctx.stroke();
+            y += 20; // Move down for the next level
+            const newLength = length / 3;
+            drawCantorSet(ctx, x, y, newLength, depth - 1);
+            drawCantorSet(ctx, x + 2 * newLength, y, newLength, depth - 1);
+        }
+        
+        const canvas = document.getElementById('cantorCanvas');
+        const ctx = canvas.getContext('2d');
+        drawCantorSet(ctx, 10, 20, 780, 5);
+        &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+        </code></pre>
+
+          <p class="mb-3">
+            This HTML and JavaScript code draws the Cantor set on a canvas element.
+          </p>
+
+          <hr class="my-5">
+
+          <h6 class="h6 mb-3">3. <strong>C# Version</strong></h6>
+
+          <pre class="bg-light p-3 mb-4"><code class="language-csharp">using System;
+        using System.Drawing;
+        using System.Windows.Forms;
+        
+        public class CantorSetForm : Form
+        {
+            public CantorSetForm()
+            {
+                this.Paint += new PaintEventHandler(DrawCantorSet);
+                this.Width = 800;
+                this.Height = 200;
+            }
+        
+            void DrawCantor(Graphics g, float x, float y, float length, int depth)
+            {
+                if (depth == 0)
+                    return;
+                g.DrawLine(Pens.Black, x, y, x + length, y);
+                y += 20; // Move down for the next level
+                float newLength = length / 3;
+                DrawCantor(g, x, y, newLength, depth - 1);
+                DrawCantor(g, x + 2 * newLength, y, newLength, depth - 1);
+            }
+        
+            void DrawCantorSet(object sender, PaintEventArgs e)
+            {
+                Graphics g = e.Graphics;
+                DrawCantor(g, 10, 10, 760, 5);
+            }
+        
+            [STAThread]
+            static void Main()
+            {
+                Application.Run(new CantorSetForm());
+            }
+        }
+        </code></pre>
+
+          <p class="mb-3">
+            This C# Windows Forms application visualizes the Cantor set using GDI+ graphics.
+          </p>
+
+          <hr class="my-5">
+
+          <h6 class="h6 mb-3">4. <strong>Assembly (ASM) Version</strong></h6>
+
+          <p class="mb-3">
+            Due to the complexity and low-level nature of assembly language, visualizing the Cantor set directly is
+            impractical. However, one could write assembly code to compute the points belonging to the Cantor set and
+            output them to a file or console. This is generally outside the scope of typical assembly applications.
+          </p>
+
+          <hr class="my-5">
+
+          <h6 class="h6 mb-3">5. <strong>AI Prompt Version</strong></h6>
+
+          <p class="mb-3"><strong>Prompt:</strong></p>
+
+          <blockquote class="blockquote">
+            Generate a visualization of the Cantor set up to 5 iterations. For each iteration, explain the process and
+            display the resulting set.
+          </blockquote>
+
+          <p class="mb-3"><strong>Expected AI Response:</strong></p>
+
+          <p class="mb-3">
+            At each iteration, the Cantor set removes the middle third of every line segment from the previous
+            iteration.
+          </p>
+
+          <ul class="mb-4">
+            <li><strong>Iteration 1:</strong> Start with a single line segment from 0 to 1.</li>
+            <li><strong>Iteration 2:</strong> Remove the middle third (1/3, 2/3), leaving two segments: [0, 1/3] and
+              [2/3,
+              1].</li>
+            <li><strong>Iteration 3:</strong> Remove the middle third of each remaining segment, resulting in four
+              segments.</li>
+            <li><strong>Continue this process up to Iteration 5</strong>, exponentially increasing the number of
+              segments
+              while decreasing their length.</li>
+          </ul>
+
+          <p class="mb-3"><em>Visualization:</em></p>
+
+          <p class="mb-3">
+            [At this point, the AI would generate or describe an image showing the Cantor set up to 5 iterations.]
+          </p>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Cantor Set and Fractals</h5>
+
+          <p class="mb-3">
+            The Cantor set is a classic example of a fractal—a structure that exhibits self-similarity and complexity
+            arising from simple iterative processes.
+          </p>
+
+          <h6 class="h6 mb-3">Self-Similarity</h6>
+
+          <p class="mb-3">
+            Each part of the Cantor set is a reduced-scale copy of the whole. No matter how much you zoom in, the
+            pattern
+            repeats indefinitely.
+          </p>
+
+          <h6 class="h6 mb-3">Applications</h6>
+
+          <ul class="mb-4">
+            <li><strong>Computer Graphics</strong>: Fractals like the Cantor set inspire algorithms for generating
+              natural-looking textures and landscapes.</li>
+            <li><strong>Chaos Theory</strong>: The Cantor set's construction reflects sensitive dependence on initial
+              conditions, a hallmark of chaotic systems.</li>
+          </ul>
+
+          <hr class="my-5">
+
+          <h5 class="h5 mb-4">Conclusion</h5>
+
+          <p class="mb-3">
+            The Cantor set serves as a profound example of how infinite complexity can emerge from simple rules. Its
+            exploration bridges various mathematical disciplines, from topology and real analysis to fractal geometry
+            and
+            computational algorithms. The Cantor set not only deepens our understanding of infinity and dimensionality
+            but
+            also inspires applications in computer science, physics, and the natural sciences.
+          </p>
+
+          <p class="mb-3">
+            Through its recursive construction and self-similarity, the Cantor set embodies the essence of fractals,
+            challenging our perceptions of space, dimension, and the very fabric of mathematical reality.
+          </p>
+
+        </article>
+      </div>
+      <div class="tab-pane fade" id="nodes" role="tabpanel" aria-labelledby="nodes-tab">
+        <div class="container-cvs"><canvas id="cantorCanvasStandard"></canvas></div>
+      </div>
+      <div class="tab-pane fade" id="stylized" role="tabpanel" aria-labelledby="stylized-tab">
+        <div class="container-cvs"><canvas id="cantorCanvasStylized"></canvas></div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
